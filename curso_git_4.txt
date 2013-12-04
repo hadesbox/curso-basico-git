@@ -1,0 +1,101 @@
+ANTES DE COMENZAR EL EJERCICIO ASEGURARSE:
+
+1. tienen cuenta de github beeva-TUNOMBRE
+2. haz solicitado que te agreguen al "team" del curso git para tener permisos de escritura en el repo remoto.
+3. haz dado de alta tu llave pública rsa (.ssh/id_rsa.pub) en tu cuenta de github (Account Settings -> SSH Keys).
+4. puedes ver el repositorio ejercicio-git en tu cuenta github en la página https://github.com/beeva/
+
+
+Este ejercicio no será de copiar y pegar, tendrán que leerlo y averiguar como resolver los "requisitos que se piden"
+
+
+Ahora haremos un ejercicio con repositorios remotos, hasta ahora todos los repositorios que hemos creado han sido siempre en local, para hacer esto lo primero que haremos es CLONARNOS un repositorio. 
+
+$ git clone git@github.com:beeva/ejercicio-git.git
+
+este comando nos creará una carpeta con el nombre del repositorio, alternativamente si queremos darle un nombre especifico podemos clonarlo indicándoselo.
+
+$ git clone git@github.com:beeva/ejercicio-git.git mirepo
+
+Como ya debes saber, Git es un gestor de código fuente distribuido, esto significa que cada repositorio clonado (git clone) o inicializado (git init), es un repositorio completo por si mismo, al cual se puede hacen todo tipo de operaciones como commits, merges y ramas. Ahora bien para sincronizar/actualizar nuestros repositorios con otros repositorios se utilizan 2 comandos
+
+$ git push <remote> <rama>
+
+$ git pull <remote> <rama>
+
+Como bien sabes, la rama principal es master, y el repositorio princial (de un repo clonado, los repos inicializados con git init no tienen "origin").
+
+$ git pull origin master
+
+estaríamos diciendo "traenos a la rama actual la rama master del repositorio origin" del mismo modo si hacemos un 
+
+$ git push origin master
+
+sería "escribe la rama actual al repositorio remoto origin en la rama remota master"
+
+
+con estos comandos debemos de tener cuidado, pues si estamos en nuestro repositorio local en la rama DEV, y hacemos un 
+
+$ git push origin master
+
+estaríamos empujando (y haciendo automerge, si tuviesemos los permisos) la rama master remota, con nuestra rama dev en local lo cual es algo que nunca debemos hacer.
+
+En este caso primero deberíamos hacer el merge en local y probarlo, y luego empujar hacia la rama master remota, mientras estamos en esa misma rama en nuestro local.
+
+
+
+Por último para ver los "remotes" que se tienen dado de alta en nuestro repositorio local podemos usar el comando 
+
+$ git remote -v  
+
+si quisieramos agregar un remote nuevo, distinto de origin haríamos
+
+$ git remote add pepe git@github.com:beeva/ejercicio-git.git
+
+$ git remote add <nombre> <uri>
+
+
+esto nos permitiría hacer comandos como
+
+$ git push pepe master
+$ git pull pepe master
+
+
+******************************************************
+*                                                    *
+*             REQUISITOS DEL EJERCICIO               *
+*                                                    *
+******************************************************
+
+1. debes clonarte el repositorio git@github.com:beeva/ejercicio-git.git si no lo haz hecho
+
+2. debes crear una rama en tu local, la rama tiene que tener tu nombre.
+
+3. en esa rama deberas editar el index.html y agregar al <li> TU NOMBRE!!! (tip: Esa es la lista de asistencia al curso, así que mejor estar apuntado ahi).
+
+
+4. debes de CREAR un fichero nuevo que tenga tu nombre (por ejemplo luisgonzalez.html), en este fichero deberas poner cualquier contenido HTML que desees
+
+5. debes enlazar la nueva pagina al index mediante un <a href=""> poniendo el enlace en tu nombre en la lista del index.html
+
+6. debes agregar y hacer commit de todos estos cambios (mientras estas en tu rama).
+
+3. deberás de empujar TÚ rama al repositio en GIT HUB (y por supuesto poder verla ahi mismo).
+
+4. deberas hacer un merge de tu rama con master, esto es.. mientras estas en master, traerte todos los cambios de tú rama e integrarlos (con un git merge.)
+
+5. deberás empujar la rama MASTER al repositorio git, y ver que tus cambios se vean ahí!
+
+ADVERTENCIA, si durante el paso 5 no te deja hacer PUSH de la rama master... es por que alguien ha hecho un push antes que tú, y por lo tanto el repositorio remoto no te deja aplicar tus cambios pues la version que tenias era mas antigua, primero debes actualizar tu rama (con un PULL), si tines algun conflicto deberás resolverlo y despues de hacer el commit, podrás hacer PUSH de tus cambios.
+
+
+
+La solución del ejercicio sería
+
+a. una rama en el repositorio de github con tu nombre, que contiene el fichero de index.html con tú nombre en la lista.
+b. la rama master contendrá todos los nombres de los asistentes al curso.
+
+
+
+
+
