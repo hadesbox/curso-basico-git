@@ -1,0 +1,127 @@
+COMANDOS BASICOS - REPOSITORIO LOCAL
+
+1. Crear una carpeta en algun lugar de nuestro sistema, por ejemplo 
+$ mkdir ~/gitdemo
+
+2. Cambiarse dentro del proyecto
+$ cd ~/gitdemo
+
+3. Inicializar la carpeta actual ocn 
+$ git init
+
+4. Dentro de la carpeta crear un archivo con el siguiente contenido llamado index.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Mi pagina con colores</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <h1 style="color: #07F">A Colorful Website</h1>
+  <p>Hola soy MANOLO EL DEL BOMBO!</p>    
+  
+  <h2 style="color: #C00">News</h2>
+  <ul>
+    <li>uf!</li>
+  </ul>
+</body>
+</html>
+
+
+5. mirar el estado actual de la carpeta, nos aparecera el index.html como "untracked" (fuera del control de versiones de git)
+$ git status
+
+6. añadir el fichero al "staging"... el staging es la zona de los ficheros que van a hacerse commit, mirar como cambia de estado...
+$ git add index.html
+$ git status
+
+7a. hacer commit del fichero, se nos abrirá automaticamente el editor por defecto (VIM o NANO), esto es para capturar el mensaje del commit.
+$ git commit
+
+nota: para realizar commit con el vim/nano primero tenemos que escribir un mensaje, luego grabar el fichero y salir (en vim ":wq", en nano ctrl+o y luego ctrl+x)
+
+7b. tambien se puede hacer commit sin editores secundarios, especificando el comentario en la linea de comandos
+$ git commit -m "Commit inicial"
+
+8. mirar el historial de repositorio
+$ git log
+
+9. ahora agregaremos dos nuevos ficheros....
+
+azul.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>La página azul</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <h1 style="color: #00F">La página azul</h1>
+  <p>El azul es el color de cielo.</p>
+</body>
+</html>
+
+y naranja.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>La página naranja</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <h1 style="color: #F90">The Orange Page</h1>
+  <p>El naranja mola tanto que lleva el nombre de la
+  <span style="color: #F90">fruta</span>.</p>
+</body>
+</html>
+
+
+10. para casi todos los comandos de git, se pueden nombrar la lista de ficheros como parámetros, añadelos.
+$ git add orange.html blue.html
+$ git status
+
+
+11. haz commit de estos dos nuevos ficheros
+$ git commit
+
+
+12. ahora modificaremos el indice para agregar enlaces a nuestras paginas agregando lo siguiente al final del BODY
+
+<h2>Navegacion</h2>
+<ul>
+  <li style="color: #F90">
+    <a href="naranja.html">Pagina naranja</a>
+  </li>
+  <li style="color: #00F">
+    <a href="azul.html">Pagina azul</a>
+  </li>
+</ul>
+
+
+13. ahora agregaremos un enlace para regresar al index.html en azul.html y naranja.html, al final del BODY
+
+<p><a href="index.html">Regresar al índice</a></p>
+
+
+14. ahora haremos commit de todos nuestros cambios, de los 3 ficheros. en git cuando un fichero se encuentra bajo control de versiones, y luego es modificado, hay que agregarlo al al "stagging" (zona pendiente de hacerse commit)
+
+$ git status
+$ git add index.html naranja.html azuls.html
+$ git status
+$ git commit -m "Agregando enlaces de navegacion"
+
+
+15. mira el historial de todo el repositorio
+$ git log --oneline
+
+
+16. mira el historial del fichero azul.html
+
+$ git log --oneline azul.html
+
+
+
+

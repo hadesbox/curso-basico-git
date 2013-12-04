@@ -1,0 +1,252 @@
+
+1. ahora trabajaremos con ramas... normalmente cuando vayas a hacer un experimento loco, no quieres tocar tu master... lo mejor para hacer cualquier cambio siempre, es HACER UNA RAMA nueva. Para listar las ramas actuales 
+
+$ git branch
+
+la rama con un *, es la rama en la que te encuentras actualmente.
+
+2. para crear una rama llamada "experimento" solo tenemos que 
+$ git branch experimento
+$ git branch
+
+3. para cambiarnos a la nueva rama
+
+$ git checkout experimento
+$ git status
+
+Algo importante que debes notar, es que la rama actual "experimento" es una copia idéntica de la rama "master", esto es pues cuando creas una rama nueva (como en el paso 2), a nueva rama es una copia de la rama actual (en la que te encuentras al momento de crearla) en nuestro caso master.
+
+4. en esta nueva rama podemos hacer todos los experimentos que querramos, y todos y cada uno de los commits que se realicen estaran unicamente dentro de ESTA rama, evitando problemas y conflictos. Para continuar crearemos un nuevo fichero arcoiris.html
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Experimento loco 2.0</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <h1>Experimento loco 2.0</h1>
+  <p>Mira! Es un arcoiris!</p>
+
+  <ul>
+    <li style="color: red">Rojo</li>
+    <li style="color: orange">Naranja</li>
+    <li style="color: yellow">Amarillo</li>
+    <li style="color: green">Verde</li>
+    <li style="color: blue">Azul</li>
+    <li style="color: indigo">Otro azul</li>
+    <li style="color: violet">Violeta</li>
+  </ul>
+    
+  <p><a href="index.html">Regresar al index</a></p>
+</body>
+</html>
+
+
+5. agrega el fichero nuevo y hazle commit
+$ git add arcoiris.html
+$ git status
+$ git commit -m "Agregando un arcoiris"
+
+6. revisa el historial de commits... (
+$ git log
+
+7. si ahora mismo cambias a la rama master, veras como el fichero arcoiris no esta ahi, ni aparece en el historial... esto es por que cada rama guarda su historial por separado (hasta que se le hace merge)
+
+$ git branch 
+
+$ git checkout master
+$ git log
+
+8. ahora regresemos a la rama experimento
+
+$ git checkout experimento
+$ git branch
+$ git status
+
+
+9. supongamos que queremos renombrar el fichero arcoiris.html, para hacerlo de forma ordenada y que GIT relacione el fichero antiguo con el nuevo debemos de
+
+$ mv arcoiris.html arco.html
+$ git status
+$ git rm arcoiris.html
+$ git status
+$ git add arco.html
+$ git status
+
+10. y hacemos commit del cambio...
+
+$ git commit -m "Renombrando arcoiris.html a arco.html"
+$ git log --oneline
+
+
+11. despues de hacer todo esto... supongamos que quieres regresar a tu rama principal para esto puedes hacer los siquiente comandos (que ya deberías recordar!!!)
+
+$ git checkout master
+$ git branch
+$ git log --oneline
+
+12. ahora crearemos una RAMA nueva a partir de master, con una nueva funcionalidad... hojas de estilo en cascada...
+
+$ git branch css
+$ git checkout css
+
+13. crea tu nueva style.css en la raiz del repo
+
+body {
+  padding: 20px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #111;
+}
+
+p, ul {
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+
+
+14. añadela y hazle commit
+
+$ git add style.css
+$ git status
+$ git commit -m "Add CSS stylesheet"
+
+15. enlazala en los tres ficheros index.html azul.html y naranja.html
+
+<link rel="stylesheet" href="style.css" />
+
+
+16. Y por último agrega estos cambios al stagging y haz commit
+$ git add index.html blue.html orange.html
+$ git status
+$ git commit -m "Enlaando las hojas en cascada"
+$ git log --oneline
+
+
+17. regresa a master (DE NUEVO... si)
+$ git checkout master
+
+18. y analiza el estado actual de master (que seguramente ya lo haz olvidado...)
+$ git log --oneline
+
+
+19. ahora haremos un MERGE entre la rama css y master...
+
+$ git merge css
+
+este comando nos dice "trae a la rama actual (master) todo el contenido de la rama css".
+
+
+20. si analizas el log, verás como mágicamente aparecen los commits en el historial de la rama CSS (ahora en master.)
+$ git log --oneline
+
+
+21. por último.. la rama CSS ya no sirve para nada, con lo que deberíamos borrarla
+
+$ git branch -d css
+$ git branch
+
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+22. todavia no hemos terminado, ahora tienes que cambiarte a la rama experimento
+$ git branch
+$ git checkout experimento
+$ git log --oneline
+
+
+23. por que vamos a hacer un MERGE del contenido de la rama MASTER (que ya tiene tambien el contenido de rama CSS)
+$ git merge master
+$ git log --oneline
+
+
+24. enlaza el css al arco.html agregando...
+
+<link rel="stylesheet" href="style.css" />
+
+y no te olvides de agregar el enlace en index.html hacia arco.html, para esto agrega al <ul>
+
+  <li>
+    <a href="arco.html">La pagina de chueca</a>
+  </li>
+
+
+25. por ultimo haz commit de los cambios y reflexiona profundamente sobre este ejercicio... :)
+$ git status
+$ git commit -a -m "Añadiendo la hoja de estilos al arco.html"
+$ git log --oneline
+
+
+26. ahora forzaremos un CONFLICTO... para esto mientras estas en EXPERIMENTO, edita index.html y cambia
+
+<p>Hola soy MANOLO EL DEL BOMBO!</p>
+
+poniendo tu nombre.
+
+
+27. haz commit de todo ello
+$ git commit -m "Poniendo mi nombre"
+
+
+28. ahora nos cambiaremos a master, 
+$ git checkout master
+
+y editaremos de nuevo index.html cambiando
+
+<p>Hola soy MANOLO EL DEL BOMBO!</p>
+
+por
+
+<p>Toma Jeroma, Pastillas de Goma!</p>
+
+29. hacemos commit de ello..
+
+$ git status
+$ git commit -a -m "Añadiendo a jeroma"
+$ git log --oneline
+
+
+30. por último hacemos merge para causar el conflicto, para esto nos traemos todos los cambios de la rama EXPERIMENTO a master
+$ git merge experimento
+$ git status
+
+31. en este punto observamos como el merge no se ha realizado automaticamente, cuando hay conflictos, git no hace nada por ti... tu tienes que resolverlos para esto solo hace falta editar el fichero con el conflicto index.html donde encontraras algo como esto
+
+
+<<<<<<< HEAD
+	<p>Toma Jeroma, Pastillas de Goma!</p>
+=======
+	<p>Mi nombre....!</p>
+>>>>>>> crazy
+
+
+32. y debes de borrar todo lo que NO quieres que se haga commit, con lo cual solo dejamos
+
+	<p>Mi nombre....!</p>
+
+
+33. por ultimo agregamos el fichero y hacemos el "commit del merge" (que normalmente es automatico, pero esta vez no se ejecuto por el fallo causado por el conflicto)
+
+$ git add index.html
+$ git commit index.html
+
+
+
+
+
+
+
