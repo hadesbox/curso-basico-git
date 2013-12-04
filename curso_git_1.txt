@@ -77,7 +77,7 @@ y naranja.html
   <meta charset="utf-8" />
 </head>
 <body>
-  <h1 style="color: #F90">The Orange Page</h1>
+  <h1 style="color: #F90">La pagina naranja</h1>
   <p>El naranja mola tanto que lleva el nombre de la
   <span style="color: #F90">fruta</span>.</p>
 </body>
@@ -85,7 +85,7 @@ y naranja.html
 
 
 10. para casi todos los comandos de git, se pueden nombrar la lista de ficheros como parámetros, añadelos.
-$ git add orange.html blue.html
+$ git add naranja.html azul.html
 $ git status
 
 
