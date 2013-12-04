@@ -28,7 +28,7 @@ $ git push <remote> <rama>
 
 $ git pull <remote> <rama>
 
-Como bien sabes, la rama principal es master, y el repositorio princial (de un repo clonado, los repos inicializados con git init no tienen "origin").
+Como bien sabes, la rama principal es master, y el repositorio princial es origin (pues es un repo clonado, los repos inicializados con git init no tienen "origin").
 
 $ git pull origin master
 
@@ -37,11 +37,6 @@ estaríamos diciendo "traenos a la rama actual la rama master del repositorio or
 $ git push origin master
 
 sería "escribe la rama actual al repositorio remoto origin en la rama remota master"
-
-
-con estos comandos debemos de tener cuidado, pues si estamos en nuestro repositorio local en la rama DEV, y hacemos un 
-
-$ git push origin master
 
 estaríamos empujando (y haciendo automerge, si tuviesemos los permisos) la rama master remota, con nuestra rama dev en local lo cual es algo que nunca debemos hacer.
 
