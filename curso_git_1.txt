@@ -11,7 +11,7 @@ $ mkdir ~/gitdemo
 2. Cambiarse dentro del proyecto
 $ cd ~/gitdemo
 
-3. Inicializar la carpeta actual ocn 
+3. Inicializar la carpeta actual como un repositorio Git
 $ git init
 
 4. Dentro de la carpeta crear un archivo con el siguiente contenido llamado index.html
@@ -34,7 +34,7 @@ $ git init
 </html>
 
 
-5. mirar el estado actual de la carpeta, nos aparecera el index.html como "untracked" (fuera del control de versiones de git)
+5. mirar el estado actual de la carpeta, nos aparecerá el index.html como "untracked" (fuera del control de versiones de git)
 $ git status
 
 6. añadir el fichero al "staging"... el staging es la zona de los ficheros que van a hacerse commit, mirar como cambia de estado...
