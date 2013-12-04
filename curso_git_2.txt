@@ -1,3 +1,8 @@
+Traducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
+Tutorial original: http://rypress.com/
+ 
+ ----------------------------------------------------------------------
+
 
 1. utiliza el comando log para ver el historial
 $ git log --oneline

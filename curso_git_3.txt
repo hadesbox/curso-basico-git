@@ -1,3 +1,10 @@
+Traducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
+Tutorial original: http://rypress.com/
+ 
+ ----------------------------------------------------------------------
+
+ EJERCICIOS CON RAMAS (BRANCHES).
+
 
 1. ahora trabajaremos con ramas... normalmente cuando vayas a hacer un experimento loco, no quieres tocar tu master... lo mejor para hacer cualquier cambio siempre, es HACER UNA RAMA nueva. Para listar las ramas actuales 
 

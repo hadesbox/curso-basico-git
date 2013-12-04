@@ -1,3 +1,8 @@
+Traducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
+Tutorial original: http://rypress.com/
+ 
+ ----------------------------------------------------------------------
+
 ANTES DE COMENZAR EL EJERCICIO ASEGURARSE:
 
 1. tienen cuenta de github beeva-TUNOMBRE

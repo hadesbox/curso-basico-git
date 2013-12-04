@@ -1,3 +1,8 @@
+Traducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
+Tutorial original: http://rypress.com/
+ 
+ ----------------------------------------------------------------------
+
 COMANDOS BASICOS - REPOSITORIO LOCAL
 
 1. Crear una carpeta en algun lugar de nuestro sistema, por ejemplo 
