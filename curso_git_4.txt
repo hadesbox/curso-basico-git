@@ -92,8 +92,10 @@ ADVERTENCIA, si durante el paso 5 no te deja hacer PUSH de la rama master... es 
 
 La solución del ejercicio sería
 
-a. una rama en el repositorio de github con tu nombre, que contiene el fichero de index.html con tú nombre en la lista.
-b. la rama master contendrá todos los nombres de los asistentes al curso.
+a. una rama en el repositorio de github con tu nombre, que contenga el fichero de index.html modificado con tú nombre en la lista ademas de un fichero aparte <nombre>.html que estará enlazado en el index.html mediante el <a>.
+   en esta rama solo debe estar esto.
+
+b. integrar tu rama, dentro de la rama master que contendrá todos los nombres de los asistentes al curso en la lista, enlazados a cada uno de los ficheros que cada alumno ha subido.
 
 
 
