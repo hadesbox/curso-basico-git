@@ -5,16 +5,19 @@ Tutorial original: http://rypress.com/
 
 ANTES DE COMENZAR EL EJERCICIO ASEGURARSE:
 
-1. tienen cuenta de github beeva-TUNOMBRE
+1. tienes una cuenta de github beeva-TUNOMBRE
 2. haz solicitado que te agreguen al "team" del curso git para tener permisos de escritura en el repo remoto.
 3. haz dado de alta tu llave pública rsa (.ssh/id_rsa.pub) en tu cuenta de github (Account Settings -> SSH Keys).
 4. puedes ver el repositorio ejercicio-git en tu cuenta github en la página https://github.com/beeva/
 
 
-Este ejercicio no será de copiar y pegar, tendrán que leerlo y averiguar como resolver los "requisitos que se piden"
+Este ejercicio no será de copiar y pegar, tendrán que leerlo y averiguar como resolver las tareas que se piden.
 
 
-Ahora haremos un ejercicio con repositorios remotos, hasta ahora todos los repositorios que hemos creado han sido siempre en local, para hacer esto lo primero que haremos es CLONARNOS un repositorio. 
+Ahora haremos un ejercicio con repositorios remotos, hasta ahora todos los repositorios que hemos creado han sido siempre en local esto es el repositorio existe únicamente en tu ordenador (esto no deja ser interesante, ya que hay muchos ficheros de texto que es interesante generar control de versiones en ellos pero no quieres subirlos a ningun repositorio remote por ejemplo ficheros de configuración del Apache/Tomcat (/etc/apache2/ o /etc/tomcat7/),
+
+
+En los ejercicios pasados, creamos una carpeta en local y luego hicimos "GIT INIT", en este caso como queremos traernos una copia de un repositorio REMOTO que ya existe lo que haremos es CLONARLO. 
 
 $ git clone git@github.com:beeva/ejercicio-git.git
 
@@ -22,27 +25,28 @@ este comando nos creará una carpeta con el nombre del repositorio, alternativam
 
 $ git clone git@github.com:beeva/ejercicio-git.git mirepo
 
-Como ya debes saber, Git es un gestor de código fuente distribuido, esto significa que cada repositorio clonado (git clone) o inicializado (git init), es un repositorio completo por si mismo, al cual se puede hacen todo tipo de operaciones como commits, merges y ramas. Ahora bien para sincronizar/actualizar nuestros repositorios con otros repositorios se utilizan 2 comandos
+Como ya debes saber, Git es un gestor de código fuente distribuido, esto significa que cada repositorio clonado (git clone) o inicializado (git init), es un repositorio completo por si mismo, en el cual se pueden hacer todo tipo de operaciones como commits, merges y ramas. Ahora bien para sincronizar/actualizar nuestros repositorios con otros repositorios se utilizan 2 comandos
 
 $ git push <remote> <rama>
 
 $ git pull <remote> <rama>
 
-Como bien sabes, la rama principal es master, y el repositorio princial es origin (pues es un repo clonado, los repos inicializados con git init no tienen "origin").
+
+Todos los repositorios siempre tienen rama master, pero pueden existis mas ramas creadas por los usuarios (o por la metodología y estandares de programación que siga tu proyecto), pero como regla general podemos decir que
+
+- la rama master, es la rama con el código estable, que esta desplegado en producción.
+- la rama release, es la rama con el codigo que se encuentra desplegado en el entorno de integrado.
+- la rama dev, es la rama desplegada en desarrollo, y apartir de la cual se CREAN todas las ramas de features que quieras para tus tareas.
+
+Normalmente las ramas release y dev, te las tienes que descargar, despues de clonar el repo. los repositorios inicializados con git init no tienen "origin" (como en la parte 1, 2 y 3), y ahora escribieramos
 
 $ git pull origin master
 
-estaríamos diciendo "traenos a la rama actual la rama master del repositorio origin" del mismo modo si hacemos un 
+le estaríamos pidiendo a GIT "trae a la rama actual la rama MASTER del repositorio ORIGIN" del mismo modo si hacemos un 
 
 $ git push origin master
 
-sería "escribe la rama actual al repositorio remoto origin en la rama remota master"
-
-estaríamos empujando (y haciendo automerge, si tuviesemos los permisos) la rama master remota, con nuestra rama dev en local lo cual es algo que nunca debemos hacer.
-
-En este caso primero deberíamos hacer el merge en local y probarlo, y luego empujar hacia la rama master remota, mientras estamos en esa misma rama en nuestro local.
-
-
+sería "sube la rama actual al repositorio remoto ORIGIN en la rama remota MASTER", estaríamos empujando (y haciendo automerge, si tuviesemos los permisos) la rama master al repositorio remoto.
 
 Por último para ver los "remotes" que se tienen dado de alta en nuestro repositorio local podemos usar el comando 
 
@@ -54,11 +58,13 @@ $ git remote add pepe git@github.com:beeva/ejercicio-git.git
 
 $ git remote add <nombre> <uri>
 
-
 esto nos permitiría hacer comandos como
 
 $ git push pepe master
 $ git pull pepe master
+ 
+
+En git puedes "empujar" directamente a otro servidor remoto sin pasar por el repositorio central, por ejemplo para hacer un despligue en desarrollo, o para enviarle una RAMA a un compañero de equipo, podríamos hacer un PUSH de una rama, sin pasar por el repositorio central.
 
 
 ******************************************************
@@ -67,14 +73,14 @@ $ git pull pepe master
 *                                                    *
 ******************************************************
 
-1. debes clonarte el repositorio git@github.com:beeva/ejercicio-git.git si no lo haz hecho
+1. debes clonarte el repositorio git@github.com:beeva/ejercicio-git.git si no lo haz hecho ya
 
-2. debes crear una rama en tu local, la rama tiene que tener tu nombre.
+2. debes crear una rama en tu local, pon tú nombre a la rama, y cambiarte a dentro de la rama.
 
-3. en esa rama deberas editar el index.html y agregar al <li> TU NOMBRE!!! (tip: Esa es la lista de asistencia al curso, así que mejor estar apuntado ahi).
+3. en esa rama deberás editar el index.html y agregar al <li></li> TU NOMBRE!!! (tip: Esa es la lista de asistencia al curso, así que mejor estar apuntado ahi).
 
 
-4. debes de CREAR un fichero nuevo que tenga tu nombre (por ejemplo luisgonzalez.html), en este fichero deberas poner cualquier contenido HTML que desees
+4. debes de CREAR un fichero nuevo que tenga tu nombre (por ejemplo luisgonzalez.html), en este fichero deberás poner cualquier contenido HTML que desees.
 
 5. debes enlazar la nueva pagina al index mediante un <a href=""> poniendo el enlace en tu nombre en la lista del index.html
 
@@ -82,20 +88,18 @@ $ git pull pepe master
 
 3. deberás de empujar TÚ rama al repositio en GIT HUB (y por supuesto poder verla ahi mismo).
 
-4. deberas hacer un merge de tu rama con master, esto es.. mientras estas en master, traerte todos los cambios de tú rama e integrarlos (con un git merge.)
+4. deberas hacer un merge de tu rama con release, esto es.. tienes que descargarte la rama release desde el repositorio local, luego cambiarte dentro de ella y traer todos los cambios de tú rama e integrarlos (con un git merge.)
 
-5. deberás empujar la rama MASTER al repositorio git, y ver que tus cambios se vean ahí!
+5. deberás empujar la rama release al repositorio git, y ver que tus cambios se vean en la páfina web del proyecto!
 
-ADVERTENCIA, si durante el paso 5 no te deja hacer PUSH de la rama master... es por que alguien ha hecho un push antes que tú, y por lo tanto el repositorio remoto no te deja aplicar tus cambios pues la version que tenias era mas antigua, primero debes actualizar tu rama (con un PULL), si tines algun conflicto deberás resolverlo y despues de hacer el commit, podrás hacer PUSH de tus cambios.
-
+NOTA, si durante el paso 5 no te deja hacer PUSH de la rama release... es por que alguien ha hecho un push de su rama release actualizada antes que tú, y por lo tanto el repositorio remoto no te deja aplicar tus cambios pues la version que inicial que tu tenias de la rama RELEASE, con la que comenzaste a trabajar es mas antigua que la versión actual en github, primero debes actualizar tu rama (con un PULL), y si tienes algun conflicto deberás resolverlo  (sin borrar el nombre de tus compañeros que veas ahí) y despues de hacer el commit, podrás hacer PUSH de tus cambios.
 
 
 La solución del ejercicio sería
 
 a. una rama en el repositorio de github con tu nombre, que contenga el fichero de index.html modificado con tú nombre en la lista ademas de un fichero aparte <nombre>.html que estará enlazado en el index.html mediante el <a>.
-   en esta rama solo debe estar esto.
 
-b. integrar tu rama, dentro de la rama master que contendrá todos los nombres de los asistentes al curso en la lista, enlazados a cada uno de los ficheros que cada alumno ha subido.
+b. integrar tu rama, dentro de la rama release que contendrá todos los nombres de los asistentes al curso en la lista, enlazados a cada uno de los ficheros que cada alumno ha subido.
 
 
 
