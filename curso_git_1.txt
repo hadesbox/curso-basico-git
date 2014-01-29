@@ -5,7 +5,7 @@ Tutorial original: http://rypress.com/
 
 COMANDOS BASICOS - REPOSITORIO LOCAL
 
-1. Crear una carpeta en algun lugar de nuestro sistema, por ejemplo 
+1. Crear una carpeta en algun lugar del sistema, por ejemplo 
 $ mkdir ~/gitdemo
 
 2. Cambiarse dentro del proyecto
@@ -14,7 +14,7 @@ $ cd ~/gitdemo
 3. Inicializar la carpeta actual como un repositorio Git
 $ git init
 
-4. Dentro de la carpeta crear un archivo con el siguiente contenido llamado index.html
+4. Dentro de la carpeta crea un archivo con el siguiente contenido llamado index.html
 
 <!DOCTYPE html>
 <html lang="es">
@@ -34,14 +34,14 @@ $ git init
 </html>
 
 
-5. mirar el estado actual de la carpeta, nos aparecerá el index.html como "untracked" (fuera del control de versiones de git)
+5. si miras el estado actual de la carpeta, te aparecerá el index.html como "untracked" (fuera del control de versiones de git)
 $ git status
 
 6. añadir el fichero al "staging"... el staging es la zona de los ficheros que van a hacerse commit, mirar como cambia de estado...
 $ git add index.html
 $ git status
 
-7a. hacer commit del fichero, se nos abrirá automaticamente el editor por defecto (VIM o NANO), esto es para capturar el mensaje del commit.
+7a. hacer commit del fichero, se nos abrirá automaticamente el editor por defecto (VIM o NANO), esto es para escribir el mensaje del commit.
 $ git commit
 
 nota: para realizar commit con el vim/nano primero tenemos que escribir un mensaje, luego grabar el fichero y salir (en vim ":wq", en nano ctrl+o y luego ctrl+x)
@@ -93,7 +93,7 @@ $ git status
 $ git commit
 
 
-12. ahora modificaremos el indice para agregar enlaces a nuestras paginas agregando lo siguiente al final del BODY
+12. ahora modificaremos el index.html para agregar enlaces a nuestras paginas agregando lo siguiente al final del BODY
 
 <h2>Navegacion</h2>
 <ul>
@@ -123,7 +123,7 @@ $ git commit -m "Agregando enlaces de navegacion"
 $ git log --oneline
 
 
-16. mira el historial del fichero azul.html
+16. mira el historial de un fichero individual, por ejemplo azul.html
 
 $ git log --oneline azul.html
 
