@@ -6,22 +6,21 @@ Tutorial original: http://rypress.com/
  EJERCICIOS CON RAMAS (BRANCHES).
 
 
-1. ahora trabajaremos con ramas... normalmente cuando vayas a hacer un experimento loco, no quieres tocar tu master... lo mejor para hacer cualquier cambio siempre, es HACER UNA RAMA nueva. Para listar las ramas actuales 
+1. ahora trabajaremos con ramas... normalmente cuando vayas a hacer un experimento loco (por ejemplo un feature nuevo de tu aplicación), no querras tocar tu master (tu rama estable, el equivalente al TRUNK en SVN)... lo mejor para hacer cualquier cambio siempre, es HACER UNA RAMA nueva y trabajar en esa rama. Para listar las ramas actuales 
 
 $ git branch
 
 la rama con un *, es la rama en la que te encuentras actualmente.
 
-2. para crear una rama llamada "experimento" solo tenemos que 
+2. para crear una rama llamada "experimento" solo tienes que 
 $ git branch experimento
 $ git branch
 
 3. para cambiarnos a la nueva rama
-
 $ git checkout experimento
 $ git status
 
-Algo importante que debes notar, es que la rama actual "experimento" es una copia idéntica de la rama "master", esto es pues cuando creas una rama nueva (como en el paso 2), a nueva rama es una copia de la rama actual (en la que te encuentras al momento de crearla) en nuestro caso master.
+Algo importante que debes recordar, es que la rama actual "experimento" es una copia idéntica de la rama "master", esto es pues cuando creas una rama nueva (como en el paso 2), la nueva rama (experimento) es una copia de la rama actual (que es en la que te encuentras al momento de crearla) en nuestro caso master.
 
 4. en esta nueva rama podemos hacer todos los experimentos que querramos, y todos y cada uno de los commits que se realicen estaran unicamente dentro de ESTA rama, evitando problemas y conflictos. Para continuar crearemos un nuevo fichero arcoiris.html
 
@@ -56,10 +55,10 @@ $ git add arcoiris.html
 $ git status
 $ git commit -m "Agregando un arcoiris"
 
-6. revisa el historial de commits... (
+6. revisa el historial de commits...
 $ git log
 
-7. si ahora mismo cambias a la rama master, veras como el fichero arcoiris no esta ahi, ni aparece en el historial... esto es por que cada rama guarda su historial por separado (hasta que se le hace merge)
+7. si ahora mismo cambias a la rama master, veras como el fichero arcoiris no estará ahí, tampoco aparece en el historial... esto es por que cada rama guarda su historial por separado (hasta que se le hace merge)
 
 $ git branch 
 
@@ -73,7 +72,7 @@ $ git branch
 $ git status
 
 
-9. supongamos que queremos renombrar el fichero arcoiris.html, para hacerlo de forma ordenada y que GIT relacione el fichero antiguo con el nuevo debemos de
+9. supongamos que queremos renombrar el fichero arcoiris.html, para hacerlo de forma ordenada y que GIT relacione el nombre del fichero antiguo con el nuevo debemos 
 
 $ mv arcoiris.html arco.html
 $ git status
@@ -81,6 +80,8 @@ $ git rm arcoiris.html
 $ git status
 $ git add arco.html
 $ git status
+
+esto se hace, para que el historial de commits del fichero aparezcan todos los commits, tanto los del fichero con su nombre antiguo como el nuevo.
 
 10. y hacemos commit del cambio...
 
@@ -122,17 +123,16 @@ ul {
 
 $ git add style.css
 $ git status
-$ git commit -m "Add CSS stylesheet"
+$ git commit -m "Añadiendo CSS stylesheet"
 
-15. enlazala en los tres ficheros index.html azul.html y naranja.html
+15. enlazala en los tres ficheros index.html azul.html y naranja.html, agregando detro del <head></head>
 
 <link rel="stylesheet" href="style.css" />
 
 
-16. Y por último agrega estos cambios al stagging y haz commit
-$ git add index.html blue.html orange.html
+16. Y por último haz commits de estos cambios, cuando quieres hacer commit de TODOS los ficheros que tienen cambios, en lugar de hacerles ADD y luego COMMIT, puedes utilizar la opción -a, esto agrega y commitea todos los ficheros que tienen cambios (en lugar de indicarlos tu individualmente con el ADD)
 $ git status
-$ git commit -m "Enlaando las hojas en cascada"
+$ git commit -a -m "Enlazando las hojas en cascada"
 $ git log --oneline
 
 
@@ -147,10 +147,10 @@ $ git log --oneline
 
 $ git merge css
 
-este comando nos dice "trae a la rama actual (master) todo el contenido de la rama css".
+lo que le estamos pidiendo a GIT que haga es "trae a la rama actual (master) todo el contenido de la rama css".
 
 
-20. si analizas el log, verás como mágicamente aparecen los commits en el historial de la rama CSS (ahora en master.)
+20. si analizas el log, verás como mágicamente aparecen los commits en el historial de la rama CSS (que ahora estan en master.)
 $ git log --oneline
 
 
@@ -160,26 +160,22 @@ $ git branch -d css
 $ git branch
 
 
-.
-.
-.
-.
-.
-.
-.
-.
+En git es muy frecuente que crees y destruyas RAMAS, inclusive varias veces al día dependiendo si por ejemplo te piden hacer 2 funcionalidades, pues creas 2 ramas distintas, donde desarrollas la funcionalidad dentro de cada una, y luego si te piden un hot-fix, creas otra rama con ese nombre, y cuando terminas el hot-fix lo integras en master (el trunk), y luego regresas a tus ramas de features.
 
 
-22. todavia no hemos terminado, ahora tienes que cambiarte a la rama experimento
+
+22. ahora tienes que cambiarte a la rama experimento
 $ git branch
 $ git checkout experimento
 $ git log --oneline
 
 
-23. por que vamos a hacer un MERGE del contenido de la rama MASTER (que ya tiene tambien el contenido de rama CSS)
+23. por que vamos a hacer un MERGE del contenido de la rama MASTER (que ya tiene tambien el contenido de rama CSS) con la rama experimento
 $ git merge master
 $ git log --oneline
 
+
+de esta forma, tienes actualizada tu rama experimento con los últimos cambios mas ESTABLES de tu rama master (TRUNK), y asi es mucho menos probable que se generen algún tipo de conflictos.
 
 24. enlaza el css al arco.html agregando...
 
@@ -187,12 +183,13 @@ $ git log --oneline
 
 y no te olvides de agregar el enlace en index.html hacia arco.html, para esto agrega al <ul>
 
+
   <li>
-    <a href="arco.html">La pagina de chueca</a>
+    <a href="arco.html">La pagina de multicolor</a>
   </li>
 
 
-25. por ultimo haz commit de los cambios y reflexiona profundamente sobre este ejercicio... :)
+25. por ultimo haz commit de los cambios
 $ git status
 $ git commit -a -m "Añadiendo la hoja de estilos al arco.html"
 $ git log --oneline
@@ -206,7 +203,7 @@ poniendo tu nombre.
 
 
 27. haz commit de todo ello
-$ git commit -m "Poniendo mi nombre"
+$ git commit -m "Mi nombre"
 
 
 28. ahora nos cambiaremos a master, 
@@ -227,11 +224,11 @@ $ git commit -a -m "Añadiendo a jeroma"
 $ git log --oneline
 
 
-30. por último hacemos merge para causar el conflicto, para esto nos traemos todos los cambios de la rama EXPERIMENTO a master
+30. En este punto, "tu nombre" esta en la rama experimento, y "jeroma" en la actual, el cambio es sobre la misma línea de código esto causará un conflicto cuando hagas el merge, esto sucede al traer todos los cambios de la rama EXPERIMENTO a master
 $ git merge experimento
 $ git status
 
-31. en este punto observamos como el merge no se ha realizado automaticamente, cuando hay conflictos, git no hace nada por ti... tu tienes que resolverlos para esto solo hace falta editar el fichero con el conflicto index.html donde encontraras algo como esto
+31. en este punto observamos como el merge no se ha realizado automaticamente, cuando hay conflictos TÚ tienes que resolverlos para esto solo hace falta editar el fichero con el conflicto index.html donde encontraras algo como esto
 
 
 <<<<<<< HEAD
@@ -240,8 +237,10 @@ $ git status
 	<p>Mi nombre....!</p>
 >>>>>>> crazy
 
+Si no hubiese pasado ningún conflicto (como cuando hicimos merge entre css y master) se realiza el commit del merge de manera automática... cada merge GENERA un nuevo commit donde se indica en un comentario autogenerado, que ramas estuvieron involucradas en la operación...
 
-32. y debes de borrar todo lo que NO quieres que se haga commit, con lo cual solo dejamos
+
+32.debes de borrar todo lo que NO quieres que se haga commit, con lo cual solo dejamos
 
 	<p>Mi nombre....!</p>
 
@@ -250,7 +249,7 @@ $ git status
 
 $ git add index.html
 $ git commit index.html
-
+$ git status
 
 
 
