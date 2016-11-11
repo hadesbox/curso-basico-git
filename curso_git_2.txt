@@ -17,7 +17,7 @@ $ git checkout <hashSHA1>
 # Not currently on any branch.
 nothing to commit (working directory clean)
 
-Si quisieras trabajar sobre un snapshot pasado (como en este caso) y comenzar a editar un fichero, no es recomendable que comiences a editar cuando te salga el mensaje para evitarte problemas... en su lugar se debería de crear una rama nueva con el comando git checkout -b <nombrenuevarama> <SHA1> pero de momento no lo hagas, mas adelante haremos ejemplos con RAMAS!
+Si quisieras trabajar sobre un snapshot pasado (como en este caso) y comenzar a editar un archivo, no es recomendable que comiences a editar cuando te salga el mensaje para evitarte problemas... en su lugar se debería de crear una rama nueva con el comando git checkout -b <nombrenuevarama> <SHA1> pero de momento no lo hagas, mas adelante haremos ejemplos con RAMAS!
 
 4. para volver al último commit de nuestra rama master
 $ git checkout master
@@ -25,7 +25,7 @@ $ git checkout master
 5.ahora crearemos un TAG... recuerda los 3 tipos de tag que existen. 
 $ git tag -a v1.0 -m "Version estable"
 
-5. ahora intentaremos crear una página experimental sin romper nada de lo que se ha hecho commit, agrega el fichero experimento.html
+5. ahora intentaremos crear una página experimental sin romper nada de lo que se ha hecho commit, agrega el archivo experimento.html
 
 <!DOCTYPE html>
 <html lang="es">
@@ -43,7 +43,7 @@ $ git tag -a v1.0 -m "Version estable"
 
 El objetivo de esto, es simular cuando se hacen cambios que no estamos seguros si seran finales...
 
-7. agrega el fichero y hazle commit
+7. agrega el archivo y hazle commit
 $ git add experimento.html
 $ git status
 $ git commit -m "Experimento loco..."
@@ -54,31 +54,10 @@ $ git log
 $ git checkout v1.0
 
 
-9. despues de analizar los ficheros con tu editor de texto (experimento.html ya no existe...) regresaremos al último commit... cómo?
+9. despues de analizar los archivos con tu editor de texto (experimento.html ya no existe...) regresaremos al último commit... cómo?
 $ git checkout master
 $ git log --oneline
 
 
-10. despues de pensartelo un par de veces... estas convencido de que el experimento.html no ha salido nada bien.. y quieres "deshacer" el ultimo commit... para esto busca su SHA1 hazle un revert! Recuerda el revert hace un contra-commit, mientras que el RESET elimina commits de la rama y regresas a como estabas antes. 
+10. despues de pensartelo un par de veces... estas convencido de que el experimento.html no ha salido nada bien.. y quieres "deshacer" el ultimo commit... para esto busca su SHA1 y luego hazle un revert! Recuerda el revert hace un contra-commit, mientras que el RESET elimina commits de la rama y regresas a como estabas antes. 
 $ git revert <sha1>
-
-
-
-
-Listo! Te haz ganado un cerveza...
-
-        ~  ~
-      ( o )o)
-     ( o )o )o)
-   (o( ~~~~~~~~o
-   ( )' ~~~~~~~'
-   ( )|)       |-.
-     o|     _  |-. \
-     o| |_||_) |  \ \
-      | | ||_) |   | |
-     o|        |  / /
-      |        |." "
-      |        |- '
-      .========.   
-
-si no puedes ver la cerveza correctamente tu editor de texto no mola.

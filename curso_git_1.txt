@@ -8,10 +8,10 @@ COMANDOS BASICOS - REPOSITORIO LOCAL
 1. Crear una carpeta en algun lugar del sistema, por ejemplo 
 $ mkdir ~/gitdemo
 
-2. Cambiarse dentro del proyecto
+2. Cambiarte dentro del proyecto
 $ cd ~/gitdemo
 
-3. Inicializar la carpeta actual como un repositorio Git
+3. Inicializa la carpeta actual como un repositorio Git
 $ git init
 
 4. Dentro de la carpeta crea un archivo con el siguiente contenido llamado index.html
@@ -37,22 +37,22 @@ $ git init
 5. si miras el estado actual de la carpeta, te aparecerá el index.html como "untracked" (fuera del control de versiones de git)
 $ git status
 
-6. añadir el fichero al "staging"... el staging es la zona de los ficheros que van a hacerse commit, mirar como cambia de estado...
+6. añade el archivo al "staging"... el staging es la zona de los archivos que van a hacerse commit, mirar como cambia de estado...
 $ git add index.html
 $ git status
 
-7a. hacer commit del fichero, se nos abrirá automaticamente el editor por defecto (VIM o NANO), esto es para escribir el mensaje del commit.
+7a. hacer commit del archivo, se nos abrirá automaticamente el editor por defecto (VIM o NANO), esto es para escribir el mensaje del commit, para windows o mac será distinto.
 $ git commit
 
-nota: para realizar commit con el vim/nano primero tenemos que escribir un mensaje, luego grabar el fichero y salir (en vim ":wq", en nano ctrl+o y luego ctrl+x)
+nota: para realizar commit con el vim/nano primero tenemos que escribir un mensaje, luego grabar el archivo y salir (en vim ":wq", en nano ctrl+o y luego ctrl+x)
 
 7b. tambien se puede hacer commit sin editores secundarios, especificando el comentario en la linea de comandos
 $ git commit -m "Commit inicial"
 
-8. mirar el historial de repositorio
+8. mira el historial de repositorio
 $ git log
 
-9. ahora agregaremos dos nuevos ficheros....
+9. ahora agregaremos dos nuevos archivos....
 
 azul.html
 
@@ -84,12 +84,12 @@ y naranja.html
 </html>
 
 
-10. para casi todos los comandos de git, se pueden nombrar la lista de ficheros como parámetros, añadelos.
+10. para casi todos los comandos de git, se pueden nombrar la lista de archivos como parámetros, añadelos.
 $ git add naranja.html azul.html
 $ git status
 
 
-11. haz commit de estos dos nuevos ficheros
+11. haz commit de estos dos nuevos archivos
 $ git commit
 
 
@@ -111,7 +111,7 @@ $ git commit
 <p><a href="index.html">Regresar al índice</a></p>
 
 
-14. ahora haremos commit de todos nuestros cambios, de los 3 ficheros. en git cuando un fichero se encuentra bajo control de versiones, y luego es modificado, hay que agregarlo al al "stagging" (zona pendiente de hacerse commit)
+14. ahora haremos commit de todos nuestros cambios, de los 3 archivos con un único comando/accion, en git cuando un archivo se encuentra bajo control de versiones y luego es modificado, hay que agregarlo al al "stagging" (zona pendiente de hacerse commit)
 
 $ git status
 $ git add index.html naranja.html azuls.html
@@ -123,10 +123,7 @@ $ git commit -m "Agregando enlaces de navegacion"
 $ git log --oneline
 
 
-16. mira el historial de un fichero individual, por ejemplo azul.html
+16. mira el historial de un archivo individual, por ejemplo azul.html
 
 $ git log --oneline azul.html
-
-
-
 

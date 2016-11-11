@@ -3,12 +3,11 @@ Tutorial original: http://rypress.com/
  
  ----------------------------------------------------------------------
 
-ANTES DE COMENZAR EL EJERCICIO ASEGURARSE:
+ANTES DE COMENZAR EL EJERCICIO ASEGURATE DE:
 
-1. tienes una cuenta de github beeva-TUNOMBRE
+1. tienes una cuenta de github
 2. haz solicitado que te agreguen al "team" del curso git para tener permisos de escritura en el repo remoto.
-3. haz dado de alta tu llave pública rsa (.ssh/id_rsa.pub) en tu cuenta de github (Account Settings -> SSH Keys).
-4. puedes ver el repositorio ejercicio-git en tu cuenta github en la página https://github.com/beeva/
+3. haz generado tu llave pública rsa (.ssh/id_rsa.pub) y la has subido a tu cuenta de github (Account Settings -> SSH Keys).
 
 
 Este ejercicio no será de copiar y pegar, tendrán que leerlo y averiguar como resolver las tareas que se piden.
@@ -19,11 +18,11 @@ Ahora haremos un ejercicio con repositorios remotos, hasta ahora todos los repos
 
 En los ejercicios pasados, creamos una carpeta en local y luego hicimos "GIT INIT", en este caso como queremos traernos una copia de un repositorio REMOTO que ya existe lo que haremos es CLONARLO. 
 
-$ git clone git@github.com:beeva/ejercicio-git.git
+$ git clone git@github.com:hadesbox/ejercicio-git.git
 
 este comando nos creará una carpeta con el nombre del repositorio, alternativamente si queremos darle un nombre especifico podemos clonarlo indicándoselo.
 
-$ git clone git@github.com:beeva/ejercicio-git.git mirepo
+$ git clone git@github.com:hadesbox/ejercicio-git.git mirepo
 
 Como ya debes saber, Git es un gestor de código fuente distribuido, esto significa que cada repositorio clonado (git clone) o inicializado (git init), es un repositorio completo por si mismo, en el cual se pueden hacer todo tipo de operaciones como commits, merges y ramas. Ahora bien para sincronizar/actualizar nuestros repositorios con otros repositorios se utilizan 2 comandos
 
@@ -54,7 +53,7 @@ $ git remote -v
 
 si quisieramos agregar un remote nuevo, distinto de origin haríamos
 
-$ git remote add pepe git@github.com:beeva/ejercicio-git.git
+$ git remote add pepe git@github.com:hadesbox/ejercicio-git.git
 
 $ git remote add <nombre> <uri>
 
@@ -73,7 +72,7 @@ En git puedes "empujar" directamente a otro servidor remoto sin pasar por el rep
 *                                                    *
 ******************************************************
 
-1. debes clonarte el repositorio git@github.com:beeva/ejercicio-git.git si no lo haz hecho ya
+1. debes clonarte el repositorio git@github.com:hadesbox/ejercicio-git.git si no lo haz hecho ya
 
 2. debes crear una rama en tu local, pon tú nombre a la rama, y cambiarte a dentro de la rama.
 
@@ -86,7 +85,7 @@ En git puedes "empujar" directamente a otro servidor remoto sin pasar por el rep
 
 6. debes agregar y hacer commit de todos estos cambios (mientras estas en tu rama).
 
-3. deberás de empujar TÚ rama al repositio en GIT HUB (y por supuesto poder verla ahi mismo).
+3. deberás de empujar TÚ rama al repositio en GITHUB (y por supuesto poder verla ahi mismo).
 
 4. deberas hacer un merge de tu rama con release, esto es.. tienes que descargarte la rama release desde el repositorio local, luego cambiarte dentro de ella y traer todos los cambios de tú rama e integrarlos (con un git merge.)
 
@@ -100,8 +99,3 @@ La solución del ejercicio sería
 a. una rama en el repositorio de github con tu nombre, que contenga el fichero de index.html modificado con tú nombre en la lista ademas de un fichero aparte <nombre>.html que estará enlazado en el index.html mediante el <a>.
 
 b. integrar tu rama, dentro de la rama release que contendrá todos los nombres de los asistentes al curso en la lista, enlazados a cada uno de los ficheros que cada alumno ha subido.
-
-
-
-
-

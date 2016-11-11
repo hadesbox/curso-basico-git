@@ -22,7 +22,7 @@ $ git status
 
 Algo importante que debes recordar, es que la rama actual "experimento" es una copia idéntica de la rama "master", esto es pues cuando creas una rama nueva (como en el paso 2), la nueva rama (experimento) es una copia de la rama actual (que es en la que te encuentras al momento de crearla) en nuestro caso master.
 
-4. en esta nueva rama podemos hacer todos los experimentos que querramos, y todos y cada uno de los commits que se realicen estaran unicamente dentro de ESTA rama, evitando problemas y conflictos. Para continuar crearemos un nuevo fichero arcoiris.html
+4. en esta nueva rama podemos hacer todos los experimentos que querramos, y todos y cada uno de los commits que se realicen estaran unicamente dentro de ESTA rama, evitando problemas y conflictos. Para continuar crearemos un nuevo archivo arcoiris.html
 
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ Algo importante que debes recordar, es que la rama actual "experimento" es una c
 </html>
 
 
-5. agrega el fichero nuevo y hazle commit
+5. agrega el archivo nuevo y hazle commit
 $ git add arcoiris.html
 $ git status
 $ git commit -m "Agregando un arcoiris"
@@ -58,7 +58,7 @@ $ git commit -m "Agregando un arcoiris"
 6. revisa el historial de commits...
 $ git log
 
-7. si ahora mismo cambias a la rama master, veras como el fichero arcoiris no estará ahí, tampoco aparece en el historial... esto es por que cada rama guarda su historial por separado (hasta que se le hace merge)
+7. si ahora mismo cambias a la rama master, veras como el archivo arcoiris no estará ahí, tampoco aparece en el historial... esto es por que cada rama guarda su historial por separado (hasta que se le hace merge)
 
 $ git branch 
 
@@ -72,7 +72,7 @@ $ git branch
 $ git status
 
 
-9. supongamos que queremos renombrar el fichero arcoiris.html, para hacerlo de forma ordenada y que GIT relacione el nombre del fichero antiguo con el nuevo debemos 
+9. supongamos que queremos renombrar el archivo arcoiris.html, para hacerlo de forma ordenada y que GIT relacione el nombre del archivo antiguo con el nuevo debemos 
 
 $ mv arcoiris.html arco.html
 $ git status
@@ -81,7 +81,7 @@ $ git status
 $ git add arco.html
 $ git status
 
-esto se hace, para que el historial de commits del fichero aparezcan todos los commits, tanto los del fichero con su nombre antiguo como el nuevo.
+esto se hace, para que el historial de commits del archivo aparezcan todos los commits, tanto los del archivo con su nombre antiguo como el nuevo.
 
 10. y hacemos commit del cambio...
 
@@ -125,12 +125,12 @@ $ git add style.css
 $ git status
 $ git commit -m "Añadiendo CSS stylesheet"
 
-15. enlazala en los tres ficheros index.html azul.html y naranja.html, agregando detro del <head></head>
+15. enlazala en los tres archivos index.html azul.html y naranja.html, agregando detro del <head></head>
 
 <link rel="stylesheet" href="style.css" />
 
 
-16. Y por último haz commits de estos cambios, cuando quieres hacer commit de TODOS los ficheros que tienen cambios, en lugar de hacerles ADD y luego COMMIT, puedes utilizar la opción -a, esto agrega y commitea todos los ficheros que tienen cambios (en lugar de indicarlos tu individualmente con el ADD)
+16. Y por último haz commits de estos cambios, cuando quieres hacer commit de TODOS los archivos que tienen cambios, en lugar de hacerles ADD y luego COMMIT, puedes utilizar la opción -a, esto agrega y commitea todos los archivos que tienen cambios (en lugar de indicarlos tu individualmente con el ADD)
 $ git status
 $ git commit -a -m "Enlazando las hojas en cascada"
 $ git log --oneline
@@ -228,7 +228,7 @@ $ git log --oneline
 $ git merge experimento
 $ git status
 
-31. en este punto observamos como el merge no se ha realizado automaticamente, cuando hay conflictos TÚ tienes que resolverlos para esto solo hace falta editar el fichero con el conflicto index.html donde encontraras algo como esto
+31. en este punto observamos como el merge no se ha realizado automaticamente, cuando hay conflictos TÚ tienes que resolverlos para esto solo hace falta editar el archivo con el conflicto index.html donde encontraras algo como esto
 
 
 <<<<<<< HEAD
@@ -245,7 +245,7 @@ Si no hubiese pasado ningún conflicto (como cuando hicimos merge entre css y ma
 	<p>Mi nombre....!</p>
 
 
-33. por ultimo agregamos el fichero y hacemos el "commit del merge" (que normalmente es automatico, pero esta vez no se ejecuto por el fallo causado por el conflicto)
+33. por ultimo agregamos el archivo y hacemos el "commit del merge" (que normalmente es automatico, pero esta vez no se ejecuto por el fallo causado por el conflicto)
 
 $ git add index.html
 $ git commit index.html
