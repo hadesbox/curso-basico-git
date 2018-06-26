@@ -5,7 +5,7 @@ basado en http://rypress.com/
 
 ANTES DE COMENZAR EL EJERCICIO ASEGURATE DE:
 
-1. tienes una cuenta de github
+1. tener una cuenta de github
 2. haz solicitado que te agreguen al "team" del curso git para tener permisos de escritura en el repo remoto.
 3. haz generado tu llave pública rsa (.ssh/id_rsa.pub) y la has subido a tu cuenta de github (Account Settings -> SSH Keys).
 
