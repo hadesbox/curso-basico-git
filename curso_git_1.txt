@@ -1,5 +1,5 @@
-asasdasdTraducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
-Tutorial original: http://rypress.com/
+Traducción y adaptación: Luis Gonzalez <hadesbox@gmail.com>
+basado en http://rypress.com/
  
  ----------------------------------------------------------------------
 
